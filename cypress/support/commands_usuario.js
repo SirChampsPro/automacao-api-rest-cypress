@@ -67,7 +67,7 @@ Cypress.Commands.add('deletar_usuario',(idUser)=>{
         });
 });
 
-Cypress.Commands.add('deletar_todos_usuarios', () => {
+Cypress.Commands.add('deletar_todos_usuarios', (token) => {
   cy.request('GET', 'http://localhost:3000/usuarios').then((response) => {
     const usuarios = response.body.usuarios;
 
@@ -76,13 +76,17 @@ Cypress.Commands.add('deletar_todos_usuarios', () => {
       return;
     }
 
-    // Pula o primeiro com slice(1)
-    usuarios.slice(1).forEach((usuario, index) => {
+    const idsParaPular = ['0uxuPY0cbmQhpEz1', '6Eiw4D280aP7GWM2'];
+    usuarios.forEach((usuario, index) => {
+      if (idsParaPular.includes(usuario._id)) return;
       cy.request({
         method: 'DELETE',
-        url: `http://localhost:3000/usuarios/${usuario._id}`
-      }).then((res) => {
-        expect(res.status).to.equal(200);
+        url: `http://localhost:3000/usuarios/${usuario._id}`,
+        headers:{
+            authorization: token
+        }
+      }).then((response) => {
+        expect(response.status).to.equal(200);
         cy.log(`Usuário deletado: ${usuario.nome} (index ${index + 1})`);
       });
     });
@@ -96,7 +100,7 @@ Cypress.Commands.add('listar_usuarios_cadastrados', () =>{
     cy.log(`Total de usuários encontrados: ${usuarios.length}`);
     usuarios.forEach((usuario, index) => {
       console.log(`Usuário ${index + 1}:`, usuario);
-      cy.log(`Usuário ${index + 1}: ${usuario.nome} | ${usuario.email} | ${usuario._id}`);
+      cy.log(`Usuário ${index + 1}: ${usuario.nome} | ${usuario.email} | ${usuario._id} | ${usuario.administrador}`);
     });
   });
 });

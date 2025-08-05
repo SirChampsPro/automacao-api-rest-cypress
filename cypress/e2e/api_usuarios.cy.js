@@ -4,8 +4,17 @@ describe('Validar fluxo cadastro de usuário', () => {
     let usuarioId;
     const usuarioId2 = Math.floor(Math.random() * 10000);
 
-    it("Realizar cadastro de usuario", () => {
+    it("Realizar cadastro de usuario administrador", () => {
         cy.cadastro_usuario_aleatorio('Wellington','well','teste','true').then((response)=>{
+            expect(response.status).to.equal(201);
+            expect(response.body.message).to.equal('Cadastro realizado com sucesso');
+            usuarioId = response.body._id;
+            cy.log(`Usuário criado com ID: ${usuarioId}`);
+        });
+    });
+
+    it("Realizar cadastro de usuario comum", () => {
+        cy.cadastro_usuario_aleatorio('Wellington','well','teste','false').then((response)=>{
             expect(response.status).to.equal(201);
             expect(response.body.message).to.equal('Cadastro realizado com sucesso');
             usuarioId = response.body._id;

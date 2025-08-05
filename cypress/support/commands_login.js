@@ -1,4 +1,4 @@
-Cypress.Commands.add('realizar_login', (user, password)=>{
+Cypress.Commands.add('login', (user, password)=>{
      cy.request({
             method: 'POST',
             url: 'http://localhost:3000/login',
@@ -10,7 +10,7 @@ Cypress.Commands.add('realizar_login', (user, password)=>{
         });
 });
 
-Cypress.Commands.add('realizar_login_retornar_token', ()=>{
+Cypress.Commands.add('login_token_adm', ()=>{
     return cy.request({
         method: 'POST',
         url: 'http://localhost:3000/login',
@@ -22,4 +22,20 @@ Cypress.Commands.add('realizar_login_retornar_token', ()=>{
     const token = response.body.authorization;
     return token;
   });
+  
+});
+
+Cypress.Commands.add('login_token_nao_adm', ()=>{
+    return cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/login',
+        body: {
+        email: 'sabrininhak+@brabeza.com.br',
+        password: 'SabrininhaK+'
+        }
+  }).then((response) => {
+    const token = response.body.authorization;
+    return token;
+  });
+  
 });
