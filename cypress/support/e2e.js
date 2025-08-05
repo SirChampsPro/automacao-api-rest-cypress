@@ -15,4 +15,8 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import './api_commands'
+import './commands_login'
+import './commands_usuario'
+import './commands_produto'
+import './commands_carrinho'
+import '@faker-js/faker'

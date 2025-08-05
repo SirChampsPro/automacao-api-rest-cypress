@@ -1,15 +1,3 @@
-Cypress.Commands.add('api_login', (user, password)=>{
-     cy.request({
-            method: 'POST',
-            url: 'http://localhost:3000/login',
-            body: {
-                "email": user,
-                "password": password
-            },
-            failOnStatusCode: false
-        });
-});
-
 Cypress.Commands.add('cadastro_usuario_aleatorio', (nome, email, password, isAdministrator)=>{
     const timestamp = Date.now();
     const numeroAleatorio = Math.floor(Math.random() * 10000);
