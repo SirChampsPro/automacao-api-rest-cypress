@@ -76,7 +76,7 @@ Cypress.Commands.add('deletar_todos_usuarios', (token) => {
       return;
     }
 
-    const idsParaPular = ['0uxuPY0cbmQhpEz1', '6Eiw4D280aP7GWM2'];
+    const idsParaPular = ['0uxuPY0cbmQhpEz1', '6Eiw4D280aP7GWM2', 'T0Aov5KVEfXEV3nX'];
     usuarios.forEach((usuario, index) => {
       if (idsParaPular.includes(usuario._id)) return;
       cy.request({

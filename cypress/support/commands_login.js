@@ -25,6 +25,21 @@ Cypress.Commands.add('login_token_adm', () => {
 
 });
 
+Cypress.Commands.add('login_token_novo_adm', () => {
+  return cy.request({
+    method: 'POST',
+    url: 'http://localhost:3000/login',
+    body: {
+      email: 'well@champs.com.br',
+      password: 'ChampsLTDA'
+    }
+  }).then((response) => {
+    const token = response.body.authorization;
+    return token;
+  });
+
+});
+
 Cypress.Commands.add('login_token_nao_adm', () => {
   return cy.request({
     method: 'POST',
