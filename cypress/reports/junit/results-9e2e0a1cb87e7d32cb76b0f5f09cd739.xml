@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.434" tests="18" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-08-13T05:39:14" tests="0" file="cypress\e2e\api_produtos.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Validar fluxo de produtos" timestamp="2025-08-13T05:39:14" tests="18" time="0.433" failures="0">
+    <testcase name="Validar fluxo de produtos Cadastrar produto" time="0.036" classname="Cadastrar produto">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Cadastrar produto já existente" time="0.016" classname="Cadastrar produto já existente">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Cadastrar produto sem token" time="0.010" classname="Cadastrar produto sem token">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Cadastrar produto sem autorização" time="0.017" classname="Cadastrar produto sem autorização">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Listar produto por id" time="0.010" classname="Listar produto por id">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Listar produto por id inexistente" time="0.011" classname="Listar produto por id inexistente">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Listar produtos cadastrados antes de editar" time="0.012" classname="Listar produtos cadastrados antes de editar">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Editar produto cadastrado" time="0.016" classname="Editar produto cadastrado">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Editar produto inexistente" time="0.017" classname="Editar produto inexistente">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Editar produto com nome repetido" time="0.017" classname="Editar produto com nome repetido">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Editar produto token ausente" time="0.014" classname="Editar produto token ausente">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Editar produto usuario comum" time="0.015" classname="Editar produto usuario comum">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Listar produtos cadastrados após editar" time="0.011" classname="Listar produtos cadastrados após editar">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Deletar Produto" time="0.021" classname="Deletar Produto">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Deletar produto atrelado a carrinho" time="0.014" classname="Deletar produto atrelado a carrinho">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Deletar Produto" time="0.023" classname="Deletar Produto">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Deletar produto token ausente" time="0.019" classname="Deletar produto token ausente">
+    </testcase>
+    <testcase name="Validar fluxo de produtos Deletar produto usuario comum" time="0.015" classname="Deletar produto usuario comum">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="0.230" tests="11" failures="0">
+  <testsuite name="Root Suite" timestamp="2025-08-13T05:39:16" tests="0" file="cypress\e2e\api_usuarios.cy.js" time="0.000" failures="0">
+  </testsuite>
+  <testsuite name="Validar fluxo cadastro de usuário" timestamp="2025-08-13T05:39:16" tests="11" time="0.230" failures="0">
+    <testcase name="Validar fluxo cadastro de usuário Realizar cadastro de usuario administrador" time="0.029" classname="Realizar cadastro de usuario administrador">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Realizar cadastro de usuario comum" time="0.012" classname="Realizar cadastro de usuario comum">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Buscar usuario por id" time="0.009" classname="Buscar usuario por id">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Listar usuarios cadastrados antes de editar" time="0.013" classname="Listar usuarios cadastrados antes de editar">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Editar usuario" time="0.011" classname="Editar usuario">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Editar usuario inexistente" time="0.011" classname="Editar usuario inexistente">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Listar usuarios cadastrados antes de deletar" time="0.013" classname="Listar usuarios cadastrados antes de deletar">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Deletar usuario" time="0.010" classname="Deletar usuario">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Listar usuarios cadastrados após deletar" time="0.013" classname="Listar usuarios cadastrados após deletar">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Cadastrar usuario com e-mail existente" time="0.010" classname="Cadastrar usuario com e-mail existente">
+    </testcase>
+    <testcase name="Validar fluxo cadastro de usuário Deletar usuario com carrinho cadastrado" time="0.011" classname="Deletar usuario com carrinho cadastrado">
+    </testcase>
+  </testsuite>
+</testsuites>
