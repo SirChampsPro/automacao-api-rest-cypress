@@ -1,4 +1,4 @@
-name: API Tests
+name: automacao-api-rest-cypress
 
 on:
   push:
@@ -7,9 +7,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
 
     steps:
       - name: Checkout repository
@@ -19,7 +16,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18'
-
       - name: Install dependencies
         run: npm install
 
@@ -27,12 +23,7 @@ jobs:
         run: npm install --save-dev serverest
 
       - name: Start ServeRest
-        run: |
-          if [ $RUNNER_OS == "Windows" ]; then
-            start /B npx serverest --port 3000
-          else
-            npx serverest --port 3000 &
-          fi
+        run: npx --no-install serverest --port 3000 &
 
       - name: Wait for ServeRest
         run: sleep 5
