@@ -104,3 +104,71 @@ Cypress.Commands.add('listar_usuarios_cadastrados', () =>{
     });
   });
 });
+
+Cypress.Commands.add('verifica_usuarioADM_existe', () => {
+  const usuario = {
+    nome: "Wellington QA",
+    email: "well@champs.com.br",
+    password: "ChampsLTDA",
+    administrador: "true"
+  };
+
+  // 1. Consultar a lista de usuários
+  cy.request({
+    method: 'GET',
+    url: 'http://localhost:3000/usuarios'
+  }).then((response) => {
+    expect(response.status).to.eq(200);
+
+    // 2. Verificar se o usuário já existe pelo email
+    const existe = response.body.usuarios.some(u => u.email === usuario.email);
+
+    if (existe) {
+      cy.log(`Usuário ${usuario.email} já existe, não será recriado ✅`);
+    } else {
+      // 3. Criar usuário se não existir
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/usuarios',
+        body: usuario
+      }).then((res) => {
+        expect(res.status).to.eq(201);
+        cy.log(`Usuário ${usuario.email} criado com sucesso 🚀`);
+      });
+    }
+  });
+});
+
+Cypress.Commands.add('verifica_usuarioComum_existe', () => {
+  const usuario = {
+    nome: "Sabrina Santos",
+    email: "sabrininhak+@brabeza.com.br",
+    password: "SabrininhaK+",
+    administrador: "false"
+  };
+
+  // 1. Consultar a lista de usuários
+  cy.request({
+    method: 'GET',
+    url: 'http://localhost:3000/usuarios'
+  }).then((response) => {
+    expect(response.status).to.eq(200);
+
+    // 2. Verificar se o usuário já existe pelo email
+    const existe = response.body.usuarios.some(u => u.email === usuario.email);
+
+    if (existe) {
+      cy.log(`Usuário ${usuario.email} já existe, não será recriado ✅`);
+    } else {
+      // 3. Criar usuário se não existir
+      cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/usuarios',
+        body: usuario
+      }).then((res) => {
+        expect(res.status).to.eq(201);
+        cy.log(`Usuário ${usuario.email} criado com sucesso 🚀`);
+      });
+    }
+  });
+});

@@ -1,0 +1,41 @@
+name: API Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v3
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Subir o ServeRest em background
+        run: npx serverest &
+
+      - name: Esperar o ServeRest iniciar
+        run: sleep 5
+
+      - name: Rodar testes com Cypress
+        run: npx cypress run
+
+      - name: Gerar relatório Mochawesome
+        run: |
+          npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json
+          npx marge cypress/reports/report.json --reportDir cypress/reports/html
+
+      - name: Salvar relatório como artefato do pipeline
+        uses: actions/upload-artifact@v3
+        with:
+          name: relatorio-cypress
+          path: cypress/reports/html

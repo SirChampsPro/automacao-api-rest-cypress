@@ -32,6 +32,7 @@ describe('Validar fluxo de produtos', () => {
     });
 
     it('Cadastrar produto sem autorização', () => {
+        cy.verifica_usuarioComum_existe();
         cy.login_token_nao_adm().then((token) => {
             expect(token).to.not.be.empty;
             cy.cadastrar_produto_aleatorio(token).then((response) => {

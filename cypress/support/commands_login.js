@@ -26,6 +26,7 @@ Cypress.Commands.add('login_token_adm', () => {
 });
 
 Cypress.Commands.add('login_token_novo_adm', () => {
+  cy.verifica_usuarioADM_existe();
   return cy.request({
     method: 'POST',
     url: 'http://localhost:3000/login',
