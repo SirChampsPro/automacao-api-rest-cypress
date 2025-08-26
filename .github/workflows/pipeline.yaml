@@ -23,6 +23,9 @@ jobs:
       - name: Install ServeRest
         run: npm install --save-dev serverest
 
+      - name: Prepare reports folder
+        run: mkdir -p cypress/reports/mochawesome
+
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -35,8 +38,12 @@ jobs:
       - name: Generate Mochawesome report
         run: |
           mkdir -p cypress/reports/html
+          if compgen -G "cypress/reports/mochawesome/*.json" > /dev/null; then
           npx mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/report.json
           npx marge cypress/reports/report.json --reportDir cypress/reports/html
+          else
+          echo "Nenhum JSON do Mochawesome encontrado, pulando merge."
+          fi
 
       - name: Upload Cypress reports
         uses: actions/upload-artifact@v4
