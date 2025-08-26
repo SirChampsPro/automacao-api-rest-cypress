@@ -35,7 +35,7 @@ jobs:
       - name: Generate Mochawesome report
         run: |
           mkdir -p cypress/reports/html
-          npx mochawesome-merge cypress/reports/*.json > cypress/reports/report.json
+          npx mochawesome-merge cypress/reports/mochawesome/*.json > cypress/reports/report.json
           npx marge cypress/reports/report.json --reportDir cypress/reports/html
 
       - name: Upload Cypress reports
