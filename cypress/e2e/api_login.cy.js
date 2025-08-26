@@ -7,6 +7,7 @@ describe('API - Teste funcional login', () => {
             expect(response.status).to.equal(200)
             expect(response.body.message).to.equal('Login realizado com sucesso')
         })
+        
     });
 
     it('Realizar login com senha inválida', () => {
